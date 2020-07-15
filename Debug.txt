@@ -1,0 +1,4 @@
+1. 无法启动Tomcat server
+描述： error "SEVERE: Failed to create server shutdown socket on address [localhost] and port [8080] (base port [8080] and offset [0])
+
+解决方案： 在eclipse tomcat设置将"shutdown"对应的Port口从8080改成8008.
