@@ -1,0 +1,23 @@
+Dependency Injection:  The dependency inversion principle.
+
+The client delegates to calls to another object the responsibility of providing its dependencies.
+
+依赖注入（Dependency Injection,简称DI）与控制反转（IoC)的含义相同。
+
+
+
+当某个java对象（调用者）需要调用另一个java对象（被调用用者，即被依赖对象）时，调用者采用new 被调用者 的方式创建对象，这样就会导致调用者与被调用者之间的耦合性增加，不利于后期项目的升级和维护。
+
+使用Spring框架后，对象不再由调用者来创建，而是由Spring容器创建，Spring容器会负责控制器程序之间的关系，而不是由调用者的程序代码直接控制。这样控制权由应用代码转移到了Spring容器，控制权发生了反转，就是Spring的控制反转。
+
+1. constructor injection
+
+2. setter injection
+
+3. field injection 
+
+通常与annotation注解配合使用， autowired + component
+
+
+which dependency injection to use? 
+--just choose a style you feel comfortable with and stay consistent in it.
