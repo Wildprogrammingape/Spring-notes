@@ -1,0 +1,16 @@
+Java annotation:
+
+Special labels added to java class. It provides meta-data about the class.
+
+比如： @Override
+Tell compile that we are overriding a method 
+告诉编译器我们要复写该函数, 通过某个 Interface
+
+@Autowired
+在注入依赖的Interface 之前写上，spring会扫描component来找到该Interface的来源
+如果扫描到多个结果，则需要:
+
+@Qualifier 来限定用哪一个,格式为 @Qualifier("bean ID")
+
+@Component
+作为组成部分，这样就不需要再xml配置文件中定义bean了
