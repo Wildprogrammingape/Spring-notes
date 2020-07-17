@@ -1,0 +1,6 @@
+Servlet is basically a java file(class) which can take the request from the client and process the request and provide response in the form of html page.
+Deployment descriptor(web.xml) mentions which servlet should be called for which request and mapping can be done using xml files or annotations
+
+当client向server发送request时，如果该请求的网页已经存在(static web, HTML pre made)，则server直接向client回复response即可。
+
+但是，如果请求的网页不存在(dynamic web, HTML needs to be produced)，那么server会借用一个helper application网页容器，也就是Tomcat(web container)。此时Tomcat通过web.xml的配置文件找到对应的servlet映射Mapping，找到合适的servlet (java class)进行处理，最终将网页以 .html的形式回复给client。
