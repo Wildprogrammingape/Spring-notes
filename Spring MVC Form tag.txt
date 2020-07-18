@@ -1,0 +1,25 @@
+@ModelAtrribute 
+
+to bind form data to java objects
+
+1.  drop-down list 下拉菜单 : <form:select>
+
+2. radio buttons 单选按钮 : <form:radiobutton>
+如： Java <form:radiobutton    path="favoriteLanguage"  value="Java" />
+
+注意这里的  path, 当submit时， spring会调用 
+
+3. checkbox 勾选框 (多选): <form:checkbox>
+
+
+
+* Validation 验证，用来保证输入内容符合要求等等
+Spring bean validation API 可以直接使用，用一些annotation标志符配合使用
+annotation:     @Notnull (error message if validation fails)  		@Size  
+
+@Valid: 		perform validation rules on customer object
+BindingResult:	results of validation placed in the BindingResult
+
+* how to deal with white Space?
+@InitBinder -- works as a pre-processor, 处理所有进入controller的web requests请求
+修剪trim 输入中的空格，如果全是空格则返回Null
