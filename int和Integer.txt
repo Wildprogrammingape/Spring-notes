@@ -1,0 +1,9 @@
+int与integer的区别从大的方面来说就是基本数据类型与其包装类的区别：
+
+int 是基本类型，直接存数值，而integer是对象，用一个引用指向这个对象
+
+1.Java 中的数据类型分为基本数据类型primitive type和复杂数据类型 non-primitive type
+
+int 是primitive, 而integer 是 non-primitive（也就是一个类）；
+
+因此在类进行初始化时int类的变量初始为0.    而Integer的变量则初始化为null.
