@@ -23,3 +23,5 @@ BindingResult:	results of validation placed in the BindingResult
 * how to deal with white Space?
 @InitBinder -- works as a pre-processor, 处理所有进入controller的web requests请求
 修剪trim 输入中的空格，如果全是空格则返回Null
+
+*Validate number range 数字验证
