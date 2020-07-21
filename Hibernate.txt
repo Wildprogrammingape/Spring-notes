@@ -1,0 +1,31 @@
+1.什么是Hibernate
+
+A framework for saving Java objects in a database
+
+Hibernate 是一种ORM框架，全称 object relative database mapping, 在Java对象与关系型
+数据库之间建立某种映射，实现存取Java对象。
+
+2. Hibernate的作用
+
+Hibernate handles all of the low-level SQL 它的底层仍然是JDBC的使用
+
+Minimizes the amount of JDBC code you have to develop
+
+Provides the Object-to-Relational Mapping (ORM)
+
+示例：
+// create java object
+Student theStudent = new Student("Long", "Chen", "chenlong0518@hotmail.com");
+
+// save it to database
+int theId = (Integer) session.save(theStudent);
+
+// now retrieve from database using primary key
+Student myStudent = session.get(Student.class, theId);
+
+-- Hibernate will store the data into databse(SQL insert)
+Hibernate 帮你将这个Object存入数据库的某行某列。 Cool !!
+ 
+3. 什么是JDBC
+
+JDBC(Java database connectivity)是用于在Java语言编程中与数据库连接的API
