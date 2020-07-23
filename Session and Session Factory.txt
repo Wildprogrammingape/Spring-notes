@@ -1,0 +1,12 @@
+1. SessionFactory
+
+Read the hibernate config file, 
+create session object,
+Heavy-weight object,
+Only create once in your application.
+
+2. Session 
+Wraps a JDBC connection,
+Main object used to save/retrieve objects
+Short-lived object
+Retrieved from SessionFactory
