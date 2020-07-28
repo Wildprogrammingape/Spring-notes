@@ -1,0 +1,15 @@
+1. Primary key : identify a unique row in a table
+
+2. Foreign key: Link tables together	
+	        a field in one table that refers to primary key in another table
+
+3. Cascade 串联
+
+You can cascade operations
+
+Apply the same operation to related entities
+
+(对于连接的数据库，一同执行operation，一同删除)
+
+4. uni-directional and bi-directional
+单向关联和双向关联
