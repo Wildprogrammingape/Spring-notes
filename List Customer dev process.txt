@@ -1,0 +1,8 @@
+1. Create our hibernate entity class : Customer.java(这个entity class 等同数据库table中的数据)
+
+2. Create CustomerDAO. java(Interface)  and CustomerDAOImpl.java(该interface的应用类)
+
+3. Create CustomerController.java (spring mvc controller)，需要inject DAO into Controller，
+将DAO注入到控制层中(将DAO从数据库获取的数据添加到springModel中供使用)
+
+4. Create JSP page: list-customers.jsp (最终展示的页面)
