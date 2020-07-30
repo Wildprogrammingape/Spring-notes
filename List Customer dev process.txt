@@ -6,3 +6,6 @@
 将DAO注入到控制层中(将DAO从数据库获取的数据添加到springModel中供使用)
 
 4. Create JSP page: list-customers.jsp (最终展示的页面)
+
+
+总结：DAO从数据库中获得数据后注入到spring mvc controller中，最终展示 Jsp页面
