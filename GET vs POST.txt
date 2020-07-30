@@ -1,0 +1,13 @@
+1. GET
+@GetMapping  从数据库读取数据
+Good for debugging
+bookmark or email URL
+Limitations on data length
+
+
+2. POST	        从mvc控制层像数据库保存数据
+@PostMapping
+Can't bookmark or email URL
+No limitations on data length
+Can also send binary data
+
