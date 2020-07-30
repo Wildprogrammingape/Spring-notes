@@ -1,0 +1,9 @@
+为什么要加service 层？
+
+@Service
+
+Service层加在DAO层和mvc controller中间，作为中间件：
+
+Intermedia layer for custom business logic
+
+Integrate data from multiple sources(DAO/repositories)
