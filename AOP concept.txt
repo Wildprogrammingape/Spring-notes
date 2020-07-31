@@ -1,0 +1,14 @@
+AOP is aspect-oriented programming
+
+1. Programming technique based on concept of an aspect
+    面向切片编程
+
+2. Aspect encapsulates cross-cutting logic
+   切片封装了横切的逻辑，切片aspect就是一个class类，可以在多个地方重复使用
+
+
+好处：
+aspect代码定义成一个类，复用性高，当需要添加某一功能时不需要改变main application code !
+
+常用于:
+logging, security, transactions, exception handing, API management
