@@ -1,0 +1,7 @@
+@Before("execution(modifier   return_type   method)")
+
+wildcard: *
+
+()       -- no argument
+(full qualified parameter)   -- one param
+(..)    --  any params
