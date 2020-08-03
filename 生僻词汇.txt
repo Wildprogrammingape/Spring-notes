@@ -1,0 +1,41 @@
+1. refine  = abstact = purify 提炼
+2. refactor 重构
+3. plain = simple 简单的 朴实的
+4. track 履带
+5. annotation = note 注解
+6. legacy 遗产
+7. retrieve = get back 找回 回收
+8.  alias 别名
+9. setter 规定者
+10. synchronize 同步化
+11. singleton 独生子
+12. prototype 初始的 样板
+13. instantiate 实例化
+14. custom 习俗的 惯例
+15. meta data 元数据
+16. snippet 片段
+17. leverage 杠杆 利用
+18. dispatch = send 派遣 发送
+19. bind 约束 捆绑
+20. polulate 填充
+21. Regular Expression 正则表达式
+正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串
+22. retain 保留  retention 保留期
+23. query 查询
+24. bulk = most 大部分  主体
+25. dialect 方言
+26. terminology 专业术语
+27.* entity 实体
+28. plain = clear 明显的 普通的
+29. legacy 遗产 传统的
+30. session 阶段 会议
+31. truncate = delete 删节
+32. generic = normal 一般的 通用的 
+33. cascade 串联 阶梯 瀑布
+34. eager 渴望的
+35. detach 分离
+36. persist 保持
+37. schema = framework 架构
+38. fetch data 提取数据
+39. nasty 讨厌的
+40. brag 吹牛
