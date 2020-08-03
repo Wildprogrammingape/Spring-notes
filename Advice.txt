@@ -1,0 +1,99 @@
+1. @Before   Advice
+
+@Aspect
+@Component
+public class MyDemoLoggingAspect {
+	
+	// this is where we add all of our related advice for logging
+
+	// let's start with an @Before advice
+	
+	@Before("execution(public void addAccount())")
+	public void beforeAddAccountAdvice() {
+		
+		System.out.println("\n========>>>Executing @Before advice on addAccount()");
+	}
+}
+
+2. @AfterReturing   Advice
+
+@Aspect
+@Component
+@Order(2)
+public class MyDemoLoggingAspect {
+	
+	// add a new advice for @AfterReturning on findAccounts method
+               @AfterReturning(pointcut="execution(* aopdemo.dao.AccountDAO.findAccounts(..))",returning="result")
+	public void afterReturningFindAccountsAdvice(
+				JoinPoint theJoinPoint, List<Account> result) {
+		
+		// print out the result of the method call
+		System.out.println("\n========>>>result is " + result);
+	}
+我们可以post-processs data，如改变Account的name为大写。但是谨慎使用，由于这是aspect层,
+team中的其他人用Account的数据不知道被改变了。
+
+3. AfterThrowing Advice
+
+@Aspect
+@Component
+@Order(2)
+public class MyDemoLoggingAspect {
+			@AfterThrowing(
+			pointcut="execution(* aopdemo.dao.AccountDAO.findAccounts(..))",
+			throwing="theExc")
+
+	public void afterThrowingFindAccountsAdvice(
+				JoinPoint theJoinPoint, Throwable theExc) {
+		
+		// point out which method we are advising on 
+		String method = theJoinPoint.getSignature().toShortString();
+		System.out.println("\n========>>>Executing @AfterThrowing on method" + method);
+		
+		
+		// log the excepetion
+		System.out.println("\n========>>>The exception is " + theExc);
+		
+	}
+
+4. @After Advice
+总会执行，类似于 finally (try-catch-finanlly)， 无论target method执行成功与否
+
+	@After("execution(* aopdemo.dao.AccountDAO.findAccounts(..))")
+	public void afterFinallyFindAccountsAdvice(JoinPoint theJoinPoint) {
+		
+		// print out which method we are advising on 
+		String method = theJoinPoint.getSignature().toShortString();
+		System.out.println("\n========>>>Executing @After (finally) on method" + method);
+		
+		
+	}
+
+5. @Around Advice 		-- run before +after 
+当使用这个annotaion时，可以利用"proceeding join point" (handle to target method)来执行target method
+用途：1）用来计算target method的执行时间(比如在程序中delay 5秒)
+          2）handle exception in @Around Advice,这样一来异常处理就在Around中得到处理(catch)，而main application不会知道这次异常，类似于打补丁patch
+
+	@Around("execution(* aopdemo.service.*.getFortune(..))")
+	public Object aroundGetFortune(
+			ProceedingJoinPoint theProceedingJoinPoint) throws Throwable{
+		
+		// print out method we are advising on
+		String method = theProceedingJoinPoint.getSignature().toShortString();
+		System.out.println("\n========>>>Executing @Around on method" + method);		
+		
+		// get begin time 
+		long begin = System.currentTimeMillis();
+		
+		// execute the method
+		Object result = theProceedingJoinPoint.proceed();
+		
+		// get end time
+		long end = System.currentTimeMillis();
+		
+		// compute duration and display it
+		long duration = end - begin;
+		System.out.println("\n========>>>Duration is :" + duration / 1000.0 + " seconds");
+		
+		return result;
+	}
