@@ -1,0 +1,15 @@
+Development Process
+
+1. Add AspectJ JAR file into our web project
+
+2. Enable AspectJ Auto Proxy (by XML or pure Java)
+
+3. Create Aspect:
+                        1)  Add logging support 	 -- (setup Logger)
+	        2)  Setup pointcut declarations -- 应用范围
+	        3)  Add @Before advice
+	        4)  Add @AfterReturning advice
+
+
+总结: @Before logging顺序为: controller -- service -- DAO
+         @AfterReturning顺序为：DAO -- service -- controller
