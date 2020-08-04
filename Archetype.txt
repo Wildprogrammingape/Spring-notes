@@ -1,0 +1,7 @@
+Maven archetype (maven 样板 starter project) ：在eclipse中，file - create maven project ...
+
+如果需要什么依赖，只需要在pom.xml中添加<dependency>即可，
+配置的代码在maven centrol repository中search后复制粘贴到xml文件中。
+
+
+
