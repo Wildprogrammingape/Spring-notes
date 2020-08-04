@@ -1,0 +1,21 @@
+什么是Maven?
+
+Maven is a project management tool, used to build management and dependencies.
+Maven是项目管理工具，用来构建依赖
+
+例:
+对于一个项目，需要添加spring, hibernate, apache commons and JSON JAR files,
+这时候只需要告诉maven你需要用那些dependency, 它会帮你下载JAR file
+
+步骤：
+读取config file 知道需要哪些JAR files, 首先在本地电脑的local repository或者cache缓存中
+寻找，如果没有则到网上 Maven central repository 中下载，保存到本地repo，构建和运行。
+
+Maven还可以提供standard directory structure标准代码框架，便于新手开发者使用。
+
+
+POM file: 是项目的configuration file配置文件，相当于shopping list
+
+Project coordinates: 项目的坐标 -- group id, artifact id, version...
+
+			 
