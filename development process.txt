@@ -1,0 +1,84 @@
+1. Add Maven dependencies for Spring mvc web application
+--find the maven coordinates for spring mvc, servlet, jsp, jstl... support and put it into xml file
+	<properties>
+		<springframework.version>5.0.2.RELEASE</springframework.version>
+		<springsecurity.version>5.0.0.RELEASE</springsecurity.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<!-- Spring Security -->
+	<dependency>
+  		<groupId>org.springframework.security</groupId>
+  		<artifactId>spring-security-web</artifactId>
+  		<version>${springsecurity.version}</version>
+	</dependency>
+
+2. Create Spring app configuration (@Configuration) -- ¥øJava≈‰÷√£¨no xml
+
+@Configuration										 // this is a configuration class
+@EnableWebMvc									     // provide similar support to <mvc:annotation-driven>
+@ComponentScan(basePackages="springsecurity.demo")   // where to scan for controller, service and other support class
+public class DemoAppConfig {
+
+	
+	
+	// define a bean for viewResolver
+	// in order to map "/WEB-INF/view/show-student-list.jsp"
+	@Bean
+	public ViewResolver viewResolver() {
+		
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+		
+		viewResolver.setPrefix("/WEB-INF/view/");
+		viewResolver.setSuffix(".jsp");
+		
+		return viewResolver;
+	}
+	
+	
+}
+
+
+
+3. Create spring dispatcher(µ˜∂»‘±) Servlet initializer
+
+public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+	@Override
+	protected Class<?>[] getRootConfigClasses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Class<?>[] getServletConfigClasses() {
+		// TODO Auto-generated method stub
+		return new Class[] { DemoAppConfig.class };
+	}
+
+	@Override
+	protected String[] getServletMappings() {
+		return new String[] { "/" };
+	}
+
+}
+
+
+
+4. Develop our spring controller
+
+@Controller
+public class DemoController {
+
+	
+	@GetMapping("/") // home page
+	public String showHome() {
+		
+		return "home";
+		
+	}
+}
+
+5. Develop our JSP view page
+
