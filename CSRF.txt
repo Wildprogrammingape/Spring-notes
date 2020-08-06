@@ -1,0 +1,13 @@
+定义:
+
+邪恶网站的安全攻击，比如诱导转账给别人
+
+
+
+
+要点：
+
+1.  Use "POST" instread of "GET" for form submission.
+  
+2. use<form:form> since it automatically adds CSRF token.(Spring mvc form tag)
+-- 在fancy-login.jsp文件选择是否使用 csrf 功能
