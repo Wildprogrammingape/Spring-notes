@@ -1,0 +1,15 @@
+1. Review API requirements
+
+2. Identify main resource / entity
+
+3. ** Use HTTP methods to assign action on resource
+
+
+创建一个Spring REST项目，实现CRUD actions。不同Http method对应不同的CRUD功能，是一个real-time project
+
+
+POST(Http Method) --- /api/customers(Endpoint)	        --- Create a new customer   (CRUD action)
+GET		 --- /api/customers 		        --- Read customers
+GET 		--- /api/customers/{customersId}   --- Read a customer by id
+PUT		--- /api/customers		        --- Update an existing customer
+DELETE	                --- /api/customers/{customersId}   --- Delete an existing  customer by id
