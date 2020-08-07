@@ -1,0 +1,5 @@
+REST∂®“Â£∫
+
+REpresentational State Transfer
+
+-- is a lightweight approach for communicating between applications
