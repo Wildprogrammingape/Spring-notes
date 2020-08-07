@@ -1,0 +1,17 @@
+data binding数据绑定，是将一种数据转换成另一种数据形式
+
+Data binding is the process of converting JSON data to Java POJO
+
+1.
+
+应用 Jackson：
+
+Jackson Project--  handles data binding between JSON and Java POJO
+
+JSON-POJO, 通过call Java POJO的setter method 将数据转换成Java对象；
+POJO-JSON, 通过call Java POJO的getter method 将数据转换成JSON。
+
+
+2.
+当开发spring REST application时， Spring自动integrate Jackson，用于JSON-POJO
+之间的转换
