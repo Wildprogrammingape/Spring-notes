@@ -1,0 +1,57 @@
+HTTP中REST的应用：
+
+大部分REST的使用都是在HTTP上的
+
+Leverage HTTP methods for CRUD operations
+
+1. POST   (HTTP)     -- Create a new entity(CRUD Operation)
+2. GET     (HTTP)     -- Read a list of entities or single entity(CRUD Operation)
+3. PUT     (HTTP)     -- Update an existing entity(CRUD Operation)
+4. DELETE(HTTP)     -- Delete an existring entity(CRUD Operation)
+
+
+Client tool 用来发送HTTP request到 REST Web Service，
+常用 Postman(客户端工具) 来做 API development 开发
+
+
+开发Spring REST例子：
+
+
+1.REST Client (web browser or Postman) -----------------  REST Service()
+    发送请求Http 请求“/test/hello”                                  向client返回"hello world"
+
+开发流程：
+
+  Develop REST controller (与Spring mvc 类似， mvc提供REST支持)
+	Step1 -- Add Maven dependencies
+	Step2 -- Java configuration -- @Configuration
+	Step3 -- Java configuration -- Servlet initializer
+               *Step4 -- Create Spring REST Service -- @RestController
+
+
+
+ 
+2. REST Client (web browser or Postman) -----------------  REST Service()
+    发送请求Http 请求“/api/students”                            Return a list of students(JSON)
+
+进入REST Service中的data自动转换为Java POJO, 从REST Service出来的data自动转换为JSON（Jackson自动转换）
+
+结果:  运行网页后输入 /api/students ， 结果为student的JSON格式
+
+
+3. REST Client (web browser or Postman) -----------------  REST Service()
+ “/api/students/{studentId}”                            Return a list of students(JSON)
+
+Path Variable (@PathVariable)-- 通过输入/id来获取student的JSON格式
+
+
+
+
+
+
+
+
+
+
+
+
