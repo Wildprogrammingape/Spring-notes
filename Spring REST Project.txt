@@ -1,0 +1,112 @@
+Build 一个Spring REST项目，实现以下功能，不使用 spring mvc 逻辑, 也不需要jsp文件~
+
+
+POST(Http Method) --- /api/customers(Endpoint)	        --- Create a new customer   (CRUD action)
+GET		 --- /api/customers 		        --- Read customers
+GET 		--- /api/customers/{customersId}   --- Read a customer by id
+PUT		--- /api/customers		        --- Update an existing customer
+DELETE	                --- /api/customers/{customersId}   --- Delete an existing  customer by id
+
+
+开发之前，已有的 spring-crm-rest 项目已有的部分：
+
+1. pom.xml file --   properties,   dependencies : spring mvc (for REST support), Spring ORM(hibernate), Jackson(POJO, JSON), Hiberante, MySQL, C3P0(connection pooling framework for database), Servlet(mvc uses servlet in the background), JSP.
+
+2. All Java config-- DemoAppConfig, MySpringMvcDispatcherServletInitializer (built in spring security videos) -- 配置文件(no xml, pure java)
+
+3. Configuration file for database connection -- persistence-mysql.properties --
+包含：JDBC connection properties, Connection pool properties, Hibernate properties
+
+
+4. Hiberante Entity class: Customer -- 目的是 map java class to a given database table--
+@Entity，@Table 标注的field作为与数据库对应的实体, @Id对应primary key , @Column 对应具体列
+
+
+5. DAO: CustomerDAO -- 包含interface 和 implementation, 创建 Hibernate SessionFactory, override methods如: getCustomer, saveCustomer, saveCustomer, deleteCustomer
+
+
+6. Service: CustomerService -- 同样包含interface 和实际的implementation, 目的是delegate the calls from Customer to DAO代理命令。代码首先注入CustomerDAO，对于getCustomers, we call customerDAO.getCustomers(都要通过调用DAO).
+
+
+Method具体开发流程：
+
+1）GetCustomer development process
+	Step1: Create Customer REST Controller
+	Step2: Autowire CustomerService
+	Step3: Add mapping for GET/customers (最终返回JSON-- Jackson自动转换)
+
+代码：
+@RestController
+@RequestMapping("/api")
+public class CustomerRestController {
+
+	// autowire the CustomerService
+	@Autowired
+	private CustomerService customerService;
+	
+	// add mapping for GET /customers
+	@GetMapping("/customers")
+	public List<Customer> getCustomers(){	
+		return customerService.getCustomers();	
+	}		
+}
+
+2）Get single Customer by id
+	// add mapping for GET / customers/{customerId}
+	@GetMapping("/customers/{customerId}")
+	public Customer getCustomer(@PathVariable int customerId) {
+		
+		Customer theCustomer = customerService.getCustomer(customerId);
+		
+		return theCustomer;
+		
+	}
+
+
+3）Exception handling
+
+
+4）Add Customer    (POST)
+要点：if REST client sends a request to "add", using HTTP POST. 此时id默认为0，
+后台backend DAO 将会"INSERT" new customer.
+
+	// add mapping for POST /customers -- add new customer
+	@PostMapping("/customers")
+	public Customer addCustomer(@RequestBody Customer theCustomer) {
+		
+		theCustomer.setId(0);
+		customerService.saveCustomer(theCustomer);
+		
+		return theCustomer;
+	}
+	
+5）Update Customer    (PUT)
+
+	// add mapping for PUT /customers -- update existing customer
+	@PutMapping("/customers")
+	public Customer updateCustomer(@RequestBody Customer theCustomer) {
+		
+		// since customer ID is set, DAO will update customer in database
+		
+		customerService.saveCustomer(theCustomer);
+		return theCustomer;
+		
+	}
+
+6）Delete Customer    (DELETE)
+	// add mapping for DELETE /customers/{customerId} -- delete customer
+	@DeleteMapping("/customers/{customerId}")
+	public String deleteCustomer(@PathVariable int customerId) {
+		
+		customerService.deleteCustomer(customerId);
+		
+		return "Deleted customer id - " + customerId;
+		
+	}
+
+
+
+
+
+
+
