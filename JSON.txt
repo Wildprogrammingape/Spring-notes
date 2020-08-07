@@ -1,0 +1,6 @@
+JSON：
+
+Javascript Object Notation 是REST 应用的普遍数据格式(XML / JSON)
+
+语言独立，not just for javascript, JSON is just plain text data
+
