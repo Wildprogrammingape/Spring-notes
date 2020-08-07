@@ -1,0 +1,3 @@
+POJO（Plain Old Java Object）简单的Java对象，实际就是普通JavaBeans，是为了避免和EJB(entity java beans)混淆所创造的简称。
+
+因此，Java POJO是单纯的没有使用Entity Beans的普通java对象，可以作为辅助类进行调用。
