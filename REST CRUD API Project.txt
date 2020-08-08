@@ -1,0 +1,86 @@
+通过spring boot,  构建实时REST CRUD API并与数据库连接 --
+
+Build a REST CRUD API with hibernate
+
+目的：
+Create a REST API for the Employee directory
+
+REST clients should be able to :
+
+	* Get a list of employees
+	* Get a single employee by id
+	* Add a new employee
+	* Update an employee
+	* Delete an employee
+
+主体框架：
+
+Employee REST Controller ---- Employee Service ---- Employee DAO(hibernate) ----Database
+其中所有的配置都通过Java config, no xml
+
+**开发流程：
+
+首先在spring initializr 初始化项目，其中依赖需要选择：
+
+1) Spring Web --WEB（Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.）
+2) Spring Data JPA -- SQL (Persist data in SQL stores with Java Persistence API using Spring Data and Hibernate.)
+3) Spring Boot DevTools -- DEVELOPER TOOLS (Provides fast application restarts, LiveReload, and configurations for enhanced development experience.)
+4) MySQL Driver -- SQL (MySQL JDBC and R2DBC driver.)
+
+导入到eclipse
+
+接下来 build DAO with hibernate 与数据库连接：
+
+
+recall ----  
+传统spring: DAO 使用Hibernate session factory， 而hibernate session factory 需要 Data Source，
+其中Data Source用于定义与数据库连接的信息 data source defines database connection information
+
+
+Spring Boot方式：自动创建 beans 如： DataSource， EntityManager(from JPA)
+因此直接在DAO中Inject 就可以了.
+-- 这里的EntityManager就相当于Hibernate的SessionFactory
+
+
+三种不同DAO开发：(本质都是JPA)
+
+1. EntityManager + Hibernate API
+2. EntityManager + JPA API
+3. Spring Data JPA
+
+
+DAO开发流程: 1. Update database configs in application.properties   数据库配置property
+	       2. Create Employee entity   创建实体，与database table对应
+                       3. Create DAO interface	创建DAO接口 --增删查改四个methods
+	       4. Create DAO implementation   创建DAO 应用
+	       5. Create REST controller to use DAO  创建REST controller来使用DAO
+
+
+ --- 到这里，输入 /api/employees 就可以直接从数据库读取employees的信息
+
+
+ADD, UPDATE 和 DELETE
+
+加入Service method -- delegate the calls from Service to the DAO
+                                    * 将 calls 从Service 委托给 DAO
+
+
+POST(Http Method) --- /api/employees(Endpoint)	        --- Create a new employee   (CRUD action)
+GET		 --- /api/employees		        --- Read employees
+GET 		--- /api/employees/{employeeId}  --- Read a employee by id
+PUT		--- /api/employees		        --- Update an existing employee
+DELETE	                --- /api/customers/{employeeId}   --- Delete an existing  employee by id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
