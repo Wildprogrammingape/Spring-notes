@@ -1,0 +1,48 @@
+1. You will learn how to 即将学到的东西：
+
+Quickly develop SpringBoot Applications
+Develop a REST API using Spring Boot
+Create s Spring MVC app with Spring Boot
+Connect Spring Boot apps to Database for CRUD development
+Leverage all Java configuration (no xml) and Maven
+
+2. Spring Boot advantages 优点
+
+Easy to get started with spring development
+Minimize the amount of manual configuration
+Help to resolve dependency conflicts
+Provide an embedded HTTP server 
+
+--卧槽太方便了，直接建一个REST Controller就可以运行，什么都不需要配置
+
+3. 创建spring boot流程：
+
+首先到spring initializr 网站上创建一个spring app，下载解压后导入到eclipse中，
+创建spring REST controller，即可运行，因为有embedded server, 因此直接在localhost
+web browser 即可看到结果
+
+4. Spring boot 架构
+
+mavenw--如果本机没有maven则自动下载maven, 且maven部署和之前一样。
+
+@SpringBootApplication-- 等于@EnableAutoConfiguration + @ComponentScan +@Configuration
+比如这里Component scan的代码是放在主 root package中，subpackage会自动被扫描到，因此不用注明扫描路径 -- cool !!!
+
+Properties文件也被初始化出来
+
+pom.xml中的“spring-boot-starter-web”包含了所有dependencies(REST+Tomcat+server),“spring-boot-starter-data-jpa”包含了JPA+Hibernate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
