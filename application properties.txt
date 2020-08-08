@@ -1,0 +1,31 @@
+通过自定义customer properties在 application.properties中，
+然后inject properties into spring boot app (@Value -- 获取值)
+
+application.properties：
+
+# Define my crazy properties
+
+coach.name = Mickey Mouse
+team.name = The Mouse Club
+
+
+
+SpringRestController:
+
+	// inject properties for : coach.name and team.name
+	@Value("${coach.name}")
+	private String coachName;
+	
+	@Value("${team.name}")
+	private String teamName;
+	
+	
+	// expose a new endpoint for "teaminfo"
+	@GetMapping("/teaminfo")
+	public String getTeamInfo() {
+		return "Coach" + coachName + ", Team name: " + teamName;
+	}
+
+
+
+
