@@ -1,0 +1,5 @@
+将application运行在command-Line上：
+
+java -jar
+
+mvnw spring-boot : run
