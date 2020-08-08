@@ -1,0 +1,10 @@
+1. Spring boot dev tools 是辅助工具，用来让application程序改变时，可以自动刷新
+
+2. 为了监控开发的application, 获得其状态和信息-- 使用 actuator endpoint (激励节点)
+如  /health,  /info
+
+开发流程: 在pom.xml 中加入"actuator"的依赖，这样我们的application就可以自动
+获得两个endpoint -- /actuator/health    /actuator/info
+
+3.在properties中加入 management.endpoints.web.exposure.include=*
+可获得15个常用的endpoints，比如/beans   /mappings ...
