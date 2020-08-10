@@ -1,6 +1,23 @@
-Bootstrap定义：
+利用Bootstrap CSS 让网页更漂亮：
 
-Booststrap is a web framework that includes CSS styles and Javascript, focused on front-end UI 
+1. Get links for remote Boostrap files
+-- 登录官网找到样板：
 
---Bootstrap是 CSS和 javascript的web框架，做前端UI的
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+2. Add links in Thymeleaf template 
+-粘贴到 thymeleaf template 中
+
+
+
+3. Apply Bootstrap CSS styles
+
+<div class="container" />
+
+<table class="table table-bordered table-striped">
+      <thead class="thead-dark">
