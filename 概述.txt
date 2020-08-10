@@ -1,0 +1,10 @@
+Thymeleaf是一个Java模板引擎
+
+-- Thymeleaf is a Java templating engine, commonly used to generate the 
+HTML views for web apps.
+
+返回的是 HTML， 类似于JSP，区别在于jsp只能用于web中，thymeleaf可作用于非web环境
+
+
+
+利用Bootstrap CSS 让网页更漂亮
