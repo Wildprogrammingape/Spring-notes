@@ -44,9 +44,9 @@ Spring Boot方式：自动创建 beans 如： DataSource， EntityManager(from JPA)
 
 三种不同DAO开发：(本质都是JPA)
 
-1. EntityManager + Hibernate API
-2. EntityManager + JPA API
-3. Spring Data JPA
+*1. EntityManager + Hibernate API
+*2. EntityManager + JPA API
+*3. Spring Data JPA
 
 
 DAO开发流程: 1. Update database configs in application.properties   数据库配置property
@@ -73,6 +73,15 @@ DELETE	                --- /api/customers/{employeeId}   --- Delete an existing 
 
 
 
+*2. EntityManager + JPA API
+
+-- 通过JPA开发DAO层，获取与数据库的连接,不用Hibernate。
+
+-- 用entityManager.() 代替 session.()
+
+*3. Spring Data JPA
+
+-- 通过spring自动生成DAO，包含常规的CRUD features, 开发者只需填写entity type and primary key即可
 
 
 
@@ -81,6 +90,9 @@ DELETE	                --- /api/customers/{employeeId}   --- Delete an existing 
 
 
 
+4. Spring Data REST 
+-- REST API开发， 使用已有的JpaRepository(entity, primary key) , 获取basic REST CRUD features:
+自动生成REST endpoint
 
 
 
