@@ -1,0 +1,55 @@
+Application requirements 项目要求：
+
+Create a web app for employee directory
+
+User should be able to get a list of employees,
+                                     add a new employee
+		     update an employee
+		     delete an employee
+
+项目使用 Thymeleaf   + Spring Boot
+
+控制流：
+
+Web browser -- employee controller -- employee service -- employee repository --database
+ -- 通过controller到 Thymeleaf Templates -- 回到web browser
+
+1. pom.xml添加 spring data jpa 和mysql JDBC的依赖
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>	
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>	
+
+2. 连接数据库，将数据库中的employees显示在网页上(data from db -- Spring Model-- Thymeleaf)
+--  http://localhost:8080/employees/list
+
+3. Add index.html to redirect to "employees/list"  将首页导航到主页面：
+-- http://localhost:8080/
+
+index.html代码:
+
+<meta http-equiv="refresh"
+	  content="0; URL='employees/list'">
+
+
+4. Add employee
+	Step1:  添加按钮 add button in list-employees.html
+	Step2:  创建添加成员的页面 create HTML form for new employee
+	Step3:  处理form data并保存 -- 必须 add model atrribute for data binding(bind the 
+			data in employee controller with object in new employee html)
+
+在new employee的html中，当form 加载load时，调用employee.getFirstName() .. 
+当form提交submit时，会调用employee.setFirstName() method
+
+5. Update employee
+
+6. Delete employee
+
+
+
+
